@@ -1,0 +1,26 @@
+CREATE TABLE posts (
+    id       NUMBER GENERATED ALWAYS AS IDENTITY, -- 아이디 (기본키 및 1부터 자동 증가)
+    writer   CHAR(8),                       -- 작성자 (외래키)
+    reg_date DATE DEFAULT SYSDATE,               -- 작성일
+    title    VARCHAR2(300) NOT NULL,             -- 제목
+    content  VARCHAR2(2000) NOT NULL,            -- 내용
+    
+    -- 제약 조건 설정
+    CONSTRAINT pk_posts_id PRIMARY KEY (id),
+    CONSTRAINT fk_posts_writer FOREIGN KEY (writer) REFERENCES students (scode)
+);
+
+desc posts;
+insert into posts(writer,title,content)
+values('92414029','대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다.','내용없음');
+insert into posts(writer,title,content)
+values('92414029','국가원로자문회의의 의장은 직전대통령이 된다. ','내용없음');
+insert into posts(writer,title,content)
+values('92414033','직전대통령이 없을 때에는 대통령이 지명한다.','내용없음');
+
+insert into posts(writer, title, content)
+select writer, title, content from posts;
+
+select * from posts;
+commit;
+
