@@ -1,5 +1,6 @@
 # 학사 관리 시스템 (University Academic Management System)
 
+
 데이터베이스 응용 수업의 실습 프로젝트로 제작한 학사 관리 웹 애플리케이션입니다.  
 Node.js와 Oracle DB를 활용하여 교수·학생·강좌 정보를 관리하고 게시판 기능을 제공합니다.
 
